@@ -103,19 +103,16 @@ WSGI_APPLICATION = 'soilTech.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
+DATABASES['default']= dj_database_url.parse('postgresql://cropisfm_db_user:XgfwMantwfLGGJOF9H1DucSUrX3D5aeS@dpg-d8r5tmvavr4c73e51g4g-a.oregon-postgres.render.com/cropisfm_db')
+
+# postgresql://cropisfm_db_user:XgfwMantwfLGGJOF9H1DucSUrX3D5aeS@dpg-d8r5tmvavr4c73e51g4g-a.oregon-postgres.render.com/cropisfm_db
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
